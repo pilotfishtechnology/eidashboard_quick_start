@@ -36,34 +36,20 @@ PilotFish’s eiDashboard UI delivers multi-dimensional operational insight for 
 5. Bring up your stack by running
 
 	```bash
-	EIDASHBOARD_VERSION=22R1
-	PSQL_USERNAME=postgres
-	PSQL_PASSWORD=postgres
-	EIDASHBOARD_PORT=8080
-	EIPLATFORM_USERNAME=eiplatform
-    EIPLATFORM_PASSWORD=eiplatform
-    
 	docker network create eidashboard-network
 
 	docker run -it -d --rm --name postgres \
 	  -v $(pwd)/postgres-data:/var/lib/postgresql/data \
-	  -e POSTGRES_USER=${PSQL_USERNAME} \
-	  -e POSTGRES_PASSWORD=${PSQL_PASSWORD} \
-	  -e POSTGRES_DB=txnlogdb \
+	  --env-file ./.env \
 	  --network=eidashboard-network \
-	  pilotfishtechnology/postgres:${EIDASHBOARD_VERSION} 
+	  pilotfishtechnology/postgres:22R1
 
 	docker run -it -d --rm --name eidashboard \
 	  -v $(pwd)/pflicense.key:/opt/pilotfish/license/pflicense.key \
-	  -p ${EIDASHBOARD_PORT}:8080 \
-	  -e PFISH_dashboard_txlogapi_url=http://localhost:8080/eip/rest \
-	  -e PFISH_DASH_CONF_com_pilotfish_eip_txlog_dbUrl=jdbc:postgresql://postgres:5432/txnlogdb \
-	  -e PFISH_DASH_CONF_com_pilotfish_eip_txlog_dbUser=${PSQL_USERNAME} \
-	  -e PFISH_DASH_CONF_com_pilotfish_eip_txlog_dbPass=${PSQL_PASSWORD} \
-	  -e PFISH_EIP_CONF_com_pilotfish_eip_user=${EIPLATFORM_USERNAME} \
-	  -e PFISH_EIP_CONF_com_pilotfish_eip_password=${EIPLATFORM_PASSWORD} \
+	  -p 8080:8080 \
+	  --env-file ./.env \
 	  --network=eidashboard-network \
-	  pilotfishtechnology/eidashboard:${EIDASHBOARD_VERSION} 
+	  pilotfishtechnology/eidashboard:22R1
 	```
 
 When your docker container is running, connect to it on port `8080` to access the eiDashboard instance.
