@@ -57,7 +57,7 @@ PilotFish’s eiDashboard UI delivers multi-dimensional operational insight for 
 	  -v $(pwd)/pflicense.key:/opt/pilotfish/license/pflicense.key \
 	  -p ${EIDASHBOARD_PORT}:8080 \
 	  -e PFISH_dashboard_txlogapi_url=http://localhost:8080/eip/rest \
-	  -e PFISH_DASH_CONF_com_pilotfish_eip_txlog_dbUrl=jdbc:postgresql://db:5432/txnlogdb \
+	  -e PFISH_DASH_CONF_com_pilotfish_eip_txlog_dbUrl=jdbc:postgresql://postgres:5432/txnlogdb \
 	  -e PFISH_DASH_CONF_com_pilotfish_eip_txlog_dbUser=${PSQL_USERNAME} \
 	  -e PFISH_DASH_CONF_com_pilotfish_eip_txlog_dbPass=${PSQL_PASSWORD} \
 	  -e PFISH_EIP_CONF_com_pilotfish_eip_user=${EIPLATFORM_USERNAME} \
