@@ -11,7 +11,7 @@
 # What is eiDashboard?
 PilotFish’s eiDashboard UI delivers multi-dimensional operational insight for greatly reduced downtime and issue resolution on the fly. Users get to view interface activity, from high-level message orchestrations all the way down to discrete operations. Developers gain access to fix issues on the fly. Business users are provided with the kind of operational detail that enables them to troubleshoot and resolve issues at a greater speed, and far more efficiently than was previously possible.
 
-[healthcare.pilotfishtechnology.com/eidashboard/](https://healthcare.pilotfishtechnology.com/eidashboard/)
+[www.pilotfishtechnology.com/interface-reporting-management-dashboard/](https://www.pilotfishtechnology.com/interface-reporting-management-dashboard/)
 
 ![logo](https://www.pilotfishtechnology.com/wp-content/uploads/2015/03/pilotfish-logo.png)
 
