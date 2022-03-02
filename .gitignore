@@ -1,0 +1,10 @@
+**/testing-cache/*
+**/testing-trace/*
+**/transact-cache/*
+**/transfer-cache/*
+**/debug-trace/*
+**/statistics/*
+*.eipstat
+*EmulatorBasicMetrics.mv.db
+*EmulatorEIPWatchDB.mv.db
+postgres-data
