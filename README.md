@@ -38,13 +38,13 @@ PilotFish’s eiDashboard UI delivers multi-dimensional operational insight for 
 	```bash
 	docker network create eidashboard-network
 
-	docker run -it -d --rm --name postgres \
+	docker run -it -d --name postgres \
 	  -v $(pwd)/db-data:/var/lib/postgresql/data \
 	  --env-file ./.env \
 	  --network=eidashboard-network \
 	  pilotfishtechnology/postgres:22R1
 
-	docker run -it -d --rm --name eidashboard \
+	docker run -it -d --name eidashboard \
 	  -v $(pwd)/logs:/opt/pilotfish/logs \
 	  -v $(pwd)/license:/opt/pilotfish/license \
 	  -v $(pwd)/config:/opt/pilotfish/config \

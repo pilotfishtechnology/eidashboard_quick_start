@@ -1,13 +1,13 @@
 # Start
 
 ```bash
-docker run -it -d --rm --name postgres \
+docker run -it -d --name postgres \
   -v $(pwd)/db-data:/var/lib/postgresql/data \
   --env-file ./.env \
   --network=eidashboard-network \
   pilotfishtechnology/postgres:22R1
 
-docker run -it -d --rm --name eidashboard \
+docker run -it -d --name eidashboard \
   -v $(pwd)/logs:/opt/pilotfish/logs \
   -v $(pwd)/license:/opt/pilotfish/license \
   -v $(pwd)/config:/opt/pilotfish/config \
@@ -36,16 +36,19 @@ docker logs -f eidashboard
 docker stop postgres
 docker stop eidashboard
 
+docker rm postgres
+docker rm eidashboard
+
 docker pull pilotfishtechnology/postgres:22R1
 docker pull pilotfishtechnology/eidashboard:22R1
 
-docker run -it -d --rm --name postgres \
+docker run -it -d --name postgres \
   -v $(pwd)/db-data:/var/lib/postgresql/data \
   --env-file ./.env \
   --network=eidashboard-network \
   pilotfishtechnology/postgres:22R1
 
-docker run -it -d --rm --name eidashboard \
+docker run -it -d --name eidashboard \
   -v $(pwd)/logs:/opt/pilotfish/logs \
   -v $(pwd)/license:/opt/pilotfish/license \
   -v $(pwd)/config:/opt/pilotfish/config \
