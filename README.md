@@ -42,7 +42,7 @@ PilotFish’s eiDashboard UI delivers multi-dimensional operational insight for 
 	  -v $(pwd)/db-data:/var/lib/postgresql/data \
 	  --env-file ./.env \
 	  --network=eidashboard-network \
-	  pilotfishtechnology/postgres:22R1
+	  pilotfishtechnology/postgres:latest
 
 	docker run -it -d --name eidashboard \
 	  -v $(pwd)/logs:/opt/pilotfish/logs \
@@ -51,7 +51,7 @@ PilotFish’s eiDashboard UI delivers multi-dimensional operational insight for 
 	  -p 8080:8080 \
 	  --env-file ./.env \
 	  --network=eidashboard-network \
-	  pilotfishtechnology/eidashboard:22R1
+	  pilotfishtechnology/eidashboard:latest
 	```
 
 When your docker container is running, connect to it on port `8080` to access the eiDashboard instance.

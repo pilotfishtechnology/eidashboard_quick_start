@@ -5,7 +5,7 @@ docker run -it -d --name postgres \
   -v $(pwd)/db-data:/var/lib/postgresql/data \
   --env-file ./.env \
   --network=eidashboard-network \
-  pilotfishtechnology/postgres:22R1
+  pilotfishtechnology/postgres:latest
 
 docker run -it -d --name eidashboard \
   -v $(pwd)/logs:/opt/pilotfish/logs \
@@ -14,7 +14,7 @@ docker run -it -d --name eidashboard \
   -p 8080:8080 \
   --env-file ./.env \
   --network=eidashboard-network \
-  pilotfishtechnology/eidashboard:22R1
+  pilotfishtechnology/eidashboard:latest
 ```
 
 # Stop
@@ -39,14 +39,14 @@ docker stop eidashboard
 docker rm postgres
 docker rm eidashboard
 
-docker pull pilotfishtechnology/postgres:22R1
-docker pull pilotfishtechnology/eidashboard:22R1
+docker pull pilotfishtechnology/postgres:latest
+docker pull pilotfishtechnology/eidashboard:latest
 
 docker run -it -d --name postgres \
   -v $(pwd)/db-data:/var/lib/postgresql/data \
   --env-file ./.env \
   --network=eidashboard-network \
-  pilotfishtechnology/postgres:22R1
+  pilotfishtechnology/postgres:latest
 
 docker run -it -d --name eidashboard \
   -v $(pwd)/logs:/opt/pilotfish/logs \
@@ -55,5 +55,5 @@ docker run -it -d --name eidashboard \
   -p 8080:8080 \
   --env-file ./.env \
   --network=eidashboard-network \
-  pilotfishtechnology/eidashboard:22R1
+  pilotfishtechnology/eidashboard:latest
 ```
