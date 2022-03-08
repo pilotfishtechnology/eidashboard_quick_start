@@ -8,3 +8,6 @@
 *EmulatorBasicMetrics.mv.db
 *EmulatorEIPWatchDB.mv.db
 postgres-data
+config
+logs
+db-data

@@ -31,7 +31,7 @@ PilotFish’s eiDashboard UI delivers multi-dimensional operational insight for 
 
 3. Log in to the [Customer Portal](https://customerportal.pilotfishtechnology.com/portal/login.html) and download your latest license file.
 
-4. Copy in your license file (`pflicense.key`).
+4. Copy in your license file (`/license/pflicense.key`).
 
 5. Bring up your stack by running
 
@@ -39,13 +39,15 @@ PilotFish’s eiDashboard UI delivers multi-dimensional operational insight for 
 	docker network create eidashboard-network
 
 	docker run -it -d --rm --name postgres \
-	  -v $(pwd)/postgres-data:/var/lib/postgresql/data \
+	  -v $(pwd)/db-data:/var/lib/postgresql/data \
 	  --env-file ./.env \
 	  --network=eidashboard-network \
 	  pilotfishtechnology/postgres:22R1
 
 	docker run -it -d --rm --name eidashboard \
-	  -v $(pwd)/pflicense.key:/opt/pilotfish/license/pflicense.key \
+	  -v $(pwd)/logs:/opt/pilotfish/logs \
+	  -v $(pwd)/license:/opt/pilotfish/license \
+	  -v $(pwd)/config:/opt/pilotfish/config \
 	  -p 8080:8080 \
 	  --env-file ./.env \
 	  --network=eidashboard-network \
